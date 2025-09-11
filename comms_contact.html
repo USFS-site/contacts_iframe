@@ -53,14 +53,14 @@
 
                 // Wrapper for contacts
                 const mainContactWrapper = document.createElement("div");
-                mainContactWrapper.className = "flex flex-col items-center mt-6 mb-6";
+                mainContactWrapper.className = "flex flex-col items-center mt-8 mb-8";
 
                 const contactGrid = document.createElement("div");
-                contactGrid.className = "flex flex-wrap justify-center gap-x-8 gap-y-12 w-full";
+                contactGrid.className = "flex flex-wrap justify-evenly gap-x-8 gap-y-12 w-full";
 
                 contactsData.forEach(contact => {
                     const profileDiv = document.createElement("div");
-                    profileDiv.className = "flex flex-col items-center gap-4 text-center w-full max-w-s";
+                    profileDiv.className = "flex flex-col items-center gap-4 text-center w-full max-w-xs";
 
                     const img = document.createElement("img");
                     img.src = contact.photo;
