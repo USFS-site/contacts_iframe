@@ -51,18 +51,12 @@
                 }
                 contactContainer.innerHTML = "";
 
-                // Create and append the contact section
+                // Wrapper for contacts
                 const mainContactWrapper = document.createElement("div");
-                mainContactWrapper.className = "flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-8";
-
-                const contactHeader = document.createElement("h2");
-                contactHeader.textContent = "YOUR CONTACTS FOR THIS AREA OF INTEREST:";
-                contactHeader.className = "text-2xl font-bold italic leading-tight mb-8 md:mb-0 md:w-1/3 whitespace-pre-line px-2";
-                contactHeader.style.color = "#201747";
-                mainContactWrapper.appendChild(contactHeader);
+                mainContactWrapper.className = "flex flex-col items-center mt-8 mb-8";
 
                 const contactGrid = document.createElement("div");
-                contactGrid.className = "flex flex-wrap justify-center gap-x-8 gap-y-12 md:w-3/4";
+                contactGrid.className = "flex flex-wrap justify-center gap-x-8 gap-y-12 w-full";
 
                 contactsData.forEach(contact => {
                     const profileDiv = document.createElement("div");
@@ -74,7 +68,7 @@
                     img.className = "rounded-full w-24 h-24 object-cover";
 
                     const textDiv = document.createElement("div");
-                    textDiv.className = "text-center md:text-left";
+                    textDiv.className = "text-center";
 
                     const nameHeading = document.createElement("h3");
                     nameHeading.textContent = contact.name;
@@ -100,7 +94,7 @@
 
                     contactGrid.appendChild(profileDiv);
                 });
-                
+
                 mainContactWrapper.appendChild(contactGrid);
                 contactContainer.appendChild(mainContactWrapper);
             } catch (error) {
