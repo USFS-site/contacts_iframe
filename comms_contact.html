@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-7xl mx-auto mt-4 text-center px-4" id="contactContainer"></div>
+    <script>
+        (function() {
+            try {
+                const contactsData = [
+                    {
+                        name: "ISABELLE MCLEMORE",
+                        title: "Vice President, Communications ",
+                        email: "imclemore@usfigureskating.org",
+                        photo: "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usafs.sidearmsports.com/images/2025/8/29/Troy_Schwindt_Headshot_qkt4B.jpg"
+                    }
+                ];
+
+                const contactContainer = document.getElementById("contactContainer");
+                if (!contactContainer) {
+                    console.error("Could not find required element.");
+                    return;
+                }
+                contactContainer.innerHTML = "";
+
+                // Create and append the contact section
+                const mainContactWrapper = document.createElement("div");
+                mainContactWrapper.className = "flex flex-col md:flex-row md:justify-between md:items-center mt-8 mb-8";
+
+                const contactHeader = document.createElement("h2");
+                contactHeader.textContent = "YOUR CONTACTS FOR THIS AREA OF INTEREST:";
+                contactHeader.className = "text-2xl font-bold italic leading-tight mb-8 md:mb-0 md:w-1/3 whitespace-pre-line px-2";
+                contactHeader.style.color = "#201747";
+                mainContactWrapper.appendChild(contactHeader);
+
+                const contactGrid = document.createElement("div");
+                contactGrid.className = "flex flex-wrap justify-center gap-x-8 gap-y-12 md:w-3/4";
+
+                contactsData.forEach(contact => {
+                    const profileDiv = document.createElement("div");
+                    profileDiv.className = "flex flex-col items-center gap-4 text-center w-full max-w-xs";
+
+                    const img = document.createElement("img");
+                    img.src = contact.photo;
+                    img.alt = contact.name;
+                    img.className = "rounded-full w-24 h-24 object-cover";
+
+                    const textDiv = document.createElement("div");
+                    textDiv.className = "text-center md:text-left";
+
+                    const nameHeading = document.createElement("h3");
+                    nameHeading.textContent = contact.name;
+                    nameHeading.className = "font-bold text-center text-lg";
+                    nameHeading.style.color = "#001489";
+
+                    const titleParagraph = document.createElement("p");
+                    titleParagraph.textContent = contact.title;
+                    titleParagraph.className = "italic text-base";
+                    titleParagraph.style.color = "#636363";
+
+                    const emailLink = document.createElement("a");
+                    emailLink.textContent = "Email";
+                    emailLink.href = "mailto:" + contact.email;
+                    emailLink.className = "text-base text-center underline text-gray-800 hover:text-[#DA291C] hover:italic hover:no-underline";
+
+                    textDiv.appendChild(nameHeading);
+                    textDiv.appendChild(titleParagraph);
+                    textDiv.appendChild(emailLink);
+
+                    profileDiv.appendChild(img);
+                    profileDiv.appendChild(textDiv);
+
+                    contactGrid.appendChild(profileDiv);
+                });
+                
+                mainContactWrapper.appendChild(contactGrid);
+                contactContainer.appendChild(mainContactWrapper);
+            } catch (error) {
+                console.error("An error occurred while creating content:", error);
+            }
+        })();
+    </script>
+</body>
+</html>
