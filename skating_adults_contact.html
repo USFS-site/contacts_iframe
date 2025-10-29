@@ -17,17 +17,20 @@
     <script>
         (function() {
             try {
+                // Contact data with subject lines
                 const contactsData = [
                     {
                         name: "CASEY MALLORY",
                         title: "Manager, Skating Programs",
                         email: "SkatingPrograms@usfigureskating.org",
+                        subject: "Question for Casey Mallory – Adult Skating",
                         photo: "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usafs.sidearmsports.com/images/2025/10/8/casey_mallory2.jpg"
                     },
                     {
                         name: "CHLOE ROBERTS",
                         title: "Senior Manager, Skating Programs",
                         email: "SkatingPrograms@usfigureskating.org",
+                        subject: "Question for Chloe Roberts – Adult Skating",
                         photo: "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usafs.sidearmsports.com/images/2025/10/29/roberts_chloe.jpg"
                     }
                 ];
@@ -74,10 +77,18 @@
                     titleParagraph.className = "italic text-base";
                     titleParagraph.style.color = "#636363";
 
+                    // Build the mailto link with subject and iframe-safe behavior
+                    const subject = encodeURIComponent(contact.subject || "Inquiry about Skating Programs");
                     const emailLink = document.createElement("a");
                     emailLink.textContent = "Email";
-                    emailLink.href = "mailto:" + contact.email;
+                    emailLink.href = `mailto:${contact.email}?subject=${subject}`;
                     emailLink.className = "text-base text-center underline text-gray-800 hover:text-[#DA291C] hover:italic hover:no-underline";
+
+                    // Ensure mailto works inside iframes on mobile
+                    emailLink.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.top.location.href = `mailto:${contact.email}?subject=${subject}`;
+                    });
 
                     textDiv.appendChild(nameHeading);
                     textDiv.appendChild(titleParagraph);
