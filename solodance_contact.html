@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <div class="max-w-7xl mx-auto mt-2 text-center px-2" id="contactContainer"></div>
+    <div class="max-w-8xl mx-auto mt-2 text-center px-2" id="contactContainer"></div>
     <script>
         (function() {
             try {
@@ -32,6 +32,20 @@
                         email: "SkatingPrograms@usfigureskating.org",
                         subject: "Question for Chloe Roberts – Solo Dance",
                         photo: "https://usfigureskating.org/images/2026/2/10/Chloe_Roberts_Headshot.jpg"
+                    },
+                    {
+                        name: "CAROL WOOLEY",
+                        title: "National Vice Chair, Solo Dance",
+                        email: "txaviatrix@gmail.com",
+                        subject: "Question for Carol Wooley – Solo Dance",
+                        photo: "https://usfigureskating.org/images/2025/9/11/USFig-V-box.png"
+                    },
+                    {
+                        name: "JOSH FISCHEL",
+                        title: "Chair, Programs & New Program Development",
+                        email: "SkatingPrograms@usfigureskating.org",
+                        subject: "Question for Josh Fischel – Solo Dance",
+                        photo: "https://usfigureskating.org/images/2025/9/11/USFig-V-box.png"
                     }
                 ];
 
@@ -53,7 +67,7 @@
                 mainContactWrapper.appendChild(contactHeader);
 
                 const contactGrid = document.createElement("div");
-                contactGrid.className = "flex flex-wrap justify-center gap-x-8 gap-y-12 md:w-3/4";
+                contactGrid.className = "flex flex-wrap justify-center gap-x-2 gap-y-4 md:w-3/4";
 
                 contactsData.forEach(contact => {
                     const profileDiv = document.createElement("div");
